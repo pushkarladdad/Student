@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
 public class StudentManager{
-    ArrayList<Students> AllStudents = new ArrayList<>();
+    ArrayList<Student> AllStudents = new ArrayList<>();
 
-    public boolean addStudent(Students student){
+    public boolean addStudent(Student student){
         AllStudents.add(student);
         if(AllStudents.contains(student)){
             return false;
@@ -14,7 +14,7 @@ public class StudentManager{
         }
     }
 
-    public Students findStudentId(studentId){
+    public Student findStudentId(studentId){
         if(AllStudents.contains(studentId)){
             return AllStudents.studentId.indexof(studentId);
         }
