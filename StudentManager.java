@@ -6,19 +6,43 @@ public class StudentManager{
     public boolean addStudent(Student student){
         AllStudents.add(student);
         if(AllStudents.contains(student)){
-            return false;
+            return true;
         }
         else{
-            return true;
-            
+            return false;
         }
     }
 
-    public Student findStudentId(studentId){
-        if(AllStudents.contains(studentId)){
-            return AllStudents.studentId.indexof(studentId);
+    public Student findStudentId(String studentId){
+        for(Student student : AllStudents){
+            if(student.getStudentId().equals(studentId)){
+                return student;
+            }
         }
-        else
-            return null;
+        return null;
     }
+
+    public void DisplayAllStudents(){
+        for(Student student : AllStudents){
+            System.out.println("Name: " + student.getName() + ", Student ID: " + student.getStudentId() + ", Marks: " + student.getMarks() + ", Grade: " + student.getGrade());
+        }
+    }
+
+    public boolean updateStudentMarks(String studentId, double newMarks){
+        Student temp = findStudentId(studentId);
+        if(temp != null){
+            temp.setMarks(newMarks);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean removeStudent(String studentId){
+        Student temp = findStudentId(studentId);
+        if(temp != null){
+            AllStudents.remove(temp);
+            return true;
+        }
+        return false;
+    }   
 }
