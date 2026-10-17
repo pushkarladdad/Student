@@ -4,13 +4,14 @@ public class StudentManager{
     ArrayList<Student> AllStudents = new ArrayList<>();
 
     public boolean addStudent(Student student){
+        
+        for(Student s : AllStudents){
+            if(s.getStudentId().equals(student.getStudentId())){
+                return false;
+            }
+        }
         AllStudents.add(student);
-        if(AllStudents.contains(student)){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return true;
     }
 
     public Student findStudentId(String studentId){
